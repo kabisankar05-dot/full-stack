@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- increse/decrese -->
+    <h2>1. Increse / Decrese </h2>
+    <input id="num" value="">
+    <button onclick="increse()">Increse</button>
+    <button onclick="decrese()">Decrese</button>
+
+    <!-- swap numbers -->
+    <h2>2. Swap Two Numbers</h2>
+    <input id="a">
+    <input id="b">
+    <button onclick="swap()">Swap</button>
+    <p id="output"></p>
+
+    <!-- remove spaces -->
+     <h2>3. Remove Spaces</h2>
+     <input id="remove">
+     <button onclick="spaces()">Trim</button>
+     <p id="trimResult"></p>
+
+     <!-- undefined/not defined -->
+      <h2>4. Undefined vs Not Defined</h2>
+      <input id="undefined">
+      <button onclick="checkundefined()">Check</button>
+      <p id="defined"></p>
+    
+
+
+
+<script>
+    //increse/decrese
+    function increse(){
+        num.value=Number(num.value)+1;
+    }
+    function decrese(){
+        num.value=Number(num.value)-1;
+    }
+
+    //swap number
+    function swap(){
+        let x= Number(document.getElementById("a").value);
+        let y= Number(document.getElementById("b").value);
+        x = x+y;
+        y = x-y;
+        x = x-y;
+        document.getElementById("output").innerText=`A:${x}, B:${y}`;
+    }
+    //trimstring
+    function spaces(){
+        let n= document.getElementById("remove").value;
+        document.getElementById("trimResult").innerHTML=n.trim(2);
+    }
+    //undefined/defined
+    function checkundefined(){
+        let a;
+        try{
+            defined.innerHTML= `A: ${x},B:${y}`;
+            console.log(b);
+        }catch{
+            
+        }
+    }
+</script>
+
+</body>
+</html>

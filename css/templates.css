@@ -1,0 +1,106 @@
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+.section{
+    width: 100%;
+    height: 100px;
+    background-color: #33ccc5;
+}
+.center{
+    width: 90%;
+    height: 100px;
+    margin: 0px auto; 
+}
+.heading{
+    width: 25%;
+    height: 70px;
+    color: white;
+    text-align: center;
+    float: left;
+}
+h4{
+    font-size: 25px;
+}
+.sub-heading{
+    width: 55%;
+    height: 100px;
+    float: left;
+    color: white;
+    text-align: center;
+}
+.home{
+    width: 15%;
+    height: 60px;
+    text-align: center;
+    float: left;
+    margin-top: 35px;
+}
+.features{
+    width: 15%;
+    height: 60px;
+    float: left;
+    text-align: center;
+    margin-top: 35px;    
+}
+.about{
+    width: 15%;
+    height: 60px;
+    float: left;
+    text-align: center;
+    margin-top: 35px;
+}
+.services{
+    width: 15%;
+    height: 60px;
+    float: left;
+    text-align: center;
+    margin-top: 35px;
+}
+.portfolio{
+    width: 15%;
+    height: 60px;
+    float: left;
+    text-align: center;
+    margin-top: 35px;
+}
+.contact{
+    width: 15%;
+    height: 60px;
+    float: left;
+    text-align: center;
+    margin-top: 35px;
+}
+
+.get{
+    width: 20%;
+    height: 50px;
+    align-items: center;
+    float: right;
+    background-color: blue;
+    color: white;
+    margin-top: 20px;
+    font-size: 18px;
+    border-radius: 20px;
+    border-color:white;
+    border-bottom-style: solid;
+    border-bottom-width: thick;
+} 
+:hover.get{
+    color: blue;
+    background-color: white;
+    border-color: blue;
+}
+
+            /*seo section*/
+.seo-section{
+    width: 100%;
+    height: 600px;
+}
+.banner-dec-right{
+    width: 90%;
+    height: 600px;
+    background-image: url("../imges/banner-dec-right.png");
+    background-repeat: no-repeat;
+    float: right;
+}
