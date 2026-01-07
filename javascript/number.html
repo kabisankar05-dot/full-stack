@@ -30,7 +30,70 @@
       <input id="undefined">
       <button onclick="checkundefined()">Check</button>
       <p id="defined"></p>
+
+      <!-- current date -->
+       <h2>5.current Date</h2>
+       <input id="date">
+       <button onclick="currentdate()">Date</button>
+       <p id="current"></p>
+
+       <!-- 15 day from today -->
+        <h2>6. 15 Day From Today </h2>
+        <input id="day">
+        <button onclick="checkday()">15 Day</button>
+        <p id="today"></p>
     
+    <!-- compare date -->
+    <h2>7. Day Between Two Dates</h2>
+    <input id="dayone">
+    <input id="daytwo">
+    <button onclick="checktwoday()">Two Dates</button>
+    <p id="dateDiff"></p>
+
+    <!-- random between two number -->
+     <h2>8. Random Between Two Number</h2>
+     <input id="min" placeholder="Min">
+     <input id="max" placeholder="Max">
+     <button onclick="randombetween()">Generate</button>
+     <p id="randomresult"></p>
+
+     <!-- Random 4 digit number -->
+     <h2>9. Random 4 Digit Number</h2>
+     <button onclick="random4digit()">Generate</button>
+     <p id="random4"></p>
+    <!-- float or -->
+     <h2>10. Float or Integer</h2>
+     <input id="checknum" placeholder="Enter number">
+     <button onclick="checkfloatint()">Check</button>
+     <p id="numresult"></p>
+
+                         <!-- Arrays -->
+
+        <!-- combine arrays -->
+     <h2>11. Combine arrays</h2>
+     <button onclick="checkcombine()">Check</button>
+     <p id="combineresult"></p>
+
+        <!-- unique values -->
+    <h2>12. Remove Duplicates</h2>
+    <button onclick="unique()">Unique</button>
+    <p id="u1"></p>
+
+    <!-- sort & center -->
+     <h2>13. Sort & Center</h2>
+     <button onclick="checkcenter()">Sort</button>
+     <p id="s1"></p>
+
+    <!-- 4.rupees denomination  -->
+    <h2>14. Rupees Denomination</h2>
+    <input id="amount" placeholder="Enter The Amount">
+    <button onclick="checkrupees()">Amount</button>
+    <p id="rupeesresult"></p>
+
+    <!--  -->
+
+     
+
 
 
 
@@ -60,13 +123,96 @@
     //undefined/defined
     function checkundefined(){
         let a;
-        try{
-            defined.innerHTML= `A: ${x},B:${y}`;
+        let result="";
+
+        result+=`Variable a value: ${a}<br>`;
+                try{
             console.log(b);
-        }catch{
-            
+        }catch(error){
+            result+="varible b is NOT DEFINED <br>";
         }
+        document.getElementById("defined").innerHTML=result;
     }
+    //current date
+    function currentdate(){
+        let d=document.getElementById("date").value;
+        document.getElementById("current").innerHTML= new Date();
+    }
+    //15 dayfrom today
+    function checkday(){
+        let d= new Date();
+        d.setDate(d.getDate()+15);
+        today.innerText=d;
+    }
+
+    //compare dates 
+    function checktwoday(){
+        let d1= new Date(dayone.value);
+        let d2= new Date(daytwo.value);
+        let diff= Math.abs(d2-d1);
+        let days=diff/(1000*60*60*24);
+        dateDiff.innerText=days+"days";
+    }
+
+    //min max two 
+    function randombetween() {
+    let minVal = Number(document.getElementById("min").value);
+    let maxVal = Number(document.getElementById("max").value);
+
+    if (minVal > maxVal) {
+        document.getElementById("randomresult").innerText =
+            "Min should be less than Max";
+        return;
+    }
+
+    let rand = Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal;
+
+    document.getElementById("randomresult").innerText = rand;
+    }
+
+                     //random 4 digit
+    function random4digit(){
+        random4.innerText=Math.floor(1000+Math.random()*9000);
+    }
+
+                        //float 
+    function checkfloatint(){
+        let n=Number(checknum.value);
+        numresult.innerText=Number.isInteger(n)?"Integer":"Float";
+    }
+
+                    //combine array
+    function checkcombine(){
+        let a=[1,2], b=[3,4];
+        combineresult.innerText=[...a,...b];
+    }
+
+    //unique values
+    function unique(){
+        let a=[1,1,2,2,3];
+        u1.innerText=[...new Set(a)];
+    }
+    
+    //sort & center
+    function checkcenter(){
+        let a=[4,2,9,0,3,1,8];
+        a.sort((x,y)=>x-y);
+        s1.innerText="Sorted:"+a+"Center:"+[Math.floor(a.length/2)];
+    }
+
+    //amount
+    function checkrupees(){
+        let amt=amount.value;
+        let notes=[500,200,100,50,20,10];
+        let out="";
+        notes.forEach(n=>{
+            if(amt>=n){out +=n +"="+ Math.floor(amt/n)+" ";
+                amt %=n;
+            }
+        });
+        rupeesresult.innerText=out;
+    }
+
 </script>
 
 </body>
