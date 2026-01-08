@@ -90,7 +90,66 @@
     <button onclick="checkrupees()">Amount</button>
     <p id="rupeesresult"></p>
 
-    <!--  -->
+    <!-- country city -->
+     <h2>15. Country->city Dropdown</h2>
+     <select onchange="loadcity(this.value)">
+        <option value="">Select country</option>
+        <option value="india">India</option>
+        <option value="usa">USA</option>
+     </select>
+     <select id="city"></select>
+     <button onclick="submitcity()">Submit</button>
+     <p id="cityresult" style="color: red;"></p>
+
+     <!-- combined logic -->
+      <h2>16. Combine+ Unique + Sort + Center +2</h2>
+      <button onclick="complex()">Run</button>
+      <p id="resultcombine"></p>
+
+    <!-- 7redio show -->
+      <h2>17. Show section on Radio</h2>
+      <button onclick="showradio()">Run</button>
+      <p style="display: none;">Visible Section</p> 
+
+    <!-- 8.checkbox limit -->
+     <h2>18. Checkbox Min 2 Min 5</h2>
+     <input type="checkbox">A
+     <input type="checkbox">B
+     <input type="checkbox">C
+     <input type="checkbox">D
+     <input type="checkbox">E
+     <input type="checkbox">F
+     <button onclick="checklimit()">Check</button>
+
+     <!-- 9 Leap year + format -->
+
+    <h2>9. Leap Year & Date Format</h2>
+    <input id="year" placeholder="Year">
+    <button onclick="leap()">Check</button>
+    <p id="c9"></p>
+
+
+    <!-- 10 Stack -->
+
+    <h2>10. Stack Operation</h2>
+    <button onclick="stackOp()">Run</button>
+    <p id="c10"></p>
+
+    <!-- 11 Queue -->
+    <h2>11. Queue Operation</h2>
+    <button onclick="queueOp()">Run</button>
+    <p id="c11"></p>
+
+    <!-- 12 Closure -->
+
+    <h2>12. Closure Example</h2>
+    <button onclick="closure()">Click</button> 
+    <p id="c12"></p>
+
+    <!-- 13 Include JS -->
+    <h2>13. Include JS File</h2>
+    <p>Use &lt;script src="file.js"&gt;&lt;/script&gt;</p>
+
 
      
 
@@ -212,6 +271,80 @@
         });
         rupeesresult.innerText=out;
     }
+
+    //city select
+    function loadcity(country){
+        let data={
+            india:["Chennai","Delhi"],
+            usa:["NY","Texas"]
+        };
+        let citySelect=document.getElementById("city");
+        citySelect.innerHTML="<option>Select city</option>";
+        data[country]?.forEach(city=>{
+            citySelect.innerHTML +=`<option>${city}</option>`;
+        });
+    }
+
+    function submitcity(){
+        let city=document.getElementById("city").value;
+        let cityresult=document.getElementById("cityresult");
+
+        if(city===""){
+            cityresult.innerText="Please Select The City";
+        }else{
+            cityresult.innerText=`Welcome to ${city}`;
+        }
+    }
+
+    /* 6 */
+function complex(){
+let a=[1,2,3];
+let b=[3,4,5];
+let r=[...new Set([...a,...b])].sort((x,y)=>x-y);
+let m=Math.floor(r.length/2);
+for(let i=m;i<r.length;i++){
+     r[i]+=2;
+}
+resultcombine.innerText=r.join(", ");
+}
+
+/* 7 */
+function showredio(){ sec.style.display="block"; }
+
+/* 8 */
+function checklimit(){
+let c=document.querySelectorAll("input[type=checkbox]:checked").length;
+alert(c>=2&&c<=5?"Valid":"Min 2 Max 5");
+}
+
+/* 9 */
+function leap(){
+let y=year.value;
+let leap=(y%4==0&&y%100!=0)||y%400==0;
+let d=new Date();
+c9.innerText=(leap?"Leap":"Not Leap")+" | "+`${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`;
+}
+
+/* 10 */
+function stackOp(){
+let s=[];
+s.push(10);s.push(20);s.pop();
+c10.innerText=s;
+}
+
+/* 11 */
+function queueOp(){
+let q=[];
+q.push(10);q.push(20);q.shift();
+c11.innerText=q;
+}
+
+/* 12 */
+let fn=(function(){
+let count=0;
+return function(){ return ++count; }
+})();
+function closure(){ c12.innerText=fn(); }
 
 </script>
 
