@@ -6,11 +6,131 @@
     <title>Document</title>
 </head>
 <body>
-
+    <h1>String</h1>
+    <h2>Enter text:</h2>
     <input type="text" id="input">
-    
-    <script>
+    <br><br>
+    <button onclick="insert()">INSERT</button>
+    <button onclick="update()">UPDATE</button>
+    <button onclick="deletetext()">DELETE</button>
+    <p id="output"></p>
+    <hr><hr>
 
-    </script>
+    <h1>Array</h1>
+    <h2>Enter Your name:</h2>
+    <input type="text" id="inputarray">
+    <br><br>
+
+    <button onclick="insertitem()">INSERT</button>
+    <button onclick="updateitem()">UPDATE</button>
+    <button onclick="deleteitem()">DELETE</button>
+    <p id="out"></p> 
+    <hr><hr>
+
+    <h1>Object</h1>
+    <h2>User Datalist:</h2>
+    <input type="text" id="inputobj" placeholder="Key Ex:age">
+    <br><br>
+    <input type="text" id="ageobj" placeholder="Value Ex:22">
+    <br><br>
+
+    <button onclick="insertobj()">INSERT</button>
+    <button onclick="updateobj()">UPDATE</button>
+    <button onclick="deleteobj()">DELETE</button>
+    <p id="outputobj"></p> 
+    <hr><hr>
+
+
+
+
+    <script>
+        function insert(){
+            let str=document.getElementById("input").value;
+            let result = str.concat(" Script");
+            document.getElementById("output").innerHTML=result;
+        }
+
+        function update(){
+            let str= document.getElementById("input").value;
+            let result = str.replace("Java","JavaScript");
+            document.getElementById("output").innerHTML=result;
+        }
+
+        function deletetext(){
+            let str = document.getElementById("input").value;
+            let result = str.replace("Java", "");
+            document.getElementById("output").innerHTML=result;
+        }
+
+                //array
+
+                let name=["kabi","arun"];
+                
+                function display(){
+                    document.getElementById("out").innerHTML= name.join(", ");
+                }
+
+                function insertitem(){
+                    let val= document.getElementById("inputarray").value;
+                    name = [...name,val];
+                    display();
+                }
+
+                function updateitem(){
+                    let val = document.getElementById("inputarray").value;
+                    let index = 1;
+                    name[index] = val;
+                    display();
+                }
+
+                function deleteitem(){
+                    let val = document.getElementById("inputarray").value;
+                    name = name.filter(n => n !== val);
+                    display();
+                }
+
+                //object 
+
+                let users = [
+                    { name:"kabi", age:22 },
+                    { name:"arun", age:23 }
+                ];
+
+            function displayoje(){
+                document.getElementById("outputobj").innerHTML=
+                users.map(u => `${u.name} -${u.age}`).join("<br>");
+            }
+
+            function insertobj(){
+                let name= inputobj.value;
+                let age=  Number(ageoje.value);
+
+                users=[...users,{name,age}];
+                displayoje();
+            }
+
+            function updateobj(){
+                let name = inputobj.value;
+                let age = Number(ageoje.value);
+
+                users = users.map(u =>
+                u.name === name ? { ...u, age } : u
+             );
+                displayoje();
+             }
+            
+
+            function deleteobj(){
+                let name = inputobj.value;
+
+                users = users.filter(u => u.name !== name);
+                displayoje();
+                }
+
+
+
+
+
+</script>
 </body>
 </html>
