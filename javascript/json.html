@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Amount Table</title>
+</head>
+<body>
+
+
+<h2>User Form</h2>
+
+Name:
+<input type="text" id="name">
+<span id="nameErr" style="color:red;"></span><br><br>
+
+Amount:
+<input type="number" id="amount">
+<span id="amountErr" style="color:red;"></span><br><br>
+City:
+<input type="text" id="city">
+<span id="cityErr" style="color:red;"></span><br><br>
+Phone Number:
+<input type="number" id="number">
+<span id="numberErr" style="color:red;"></span><br><br>
+
+<button onclick="addUser()">Add / Update</button>
+
+<hr>
+
+<h3>Search / Filter / Sort</h3>
+
+Search Name:
+<input type="text" id="searchName" onkeyup="searchUser()">
+
+Filter Amount >
+<input type="number" id="filterAmount">
+<button onclick="filterUser()">Filter</button>
+
+<button onclick="sortByAmount()">Sort by Amount</button><br><br>
+<hr>
+
+<h3>Table</h3>
+
+<table border="1" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+      <th>City</th>
+      <th>Phone Number</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody"></tbody>
+</table>
+
+<script src="../script/json.js" ></script>
+
+</body>
+</html>
