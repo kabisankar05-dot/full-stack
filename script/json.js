@@ -2,7 +2,11 @@
 
 
 /* ===== DATA STORE (IMPORTANT) ===== */
-let users = [];
+let users = [
+  { name: "Kabi", amount: 5000, city: "Chennai", number: "9876543210" },
+  { name: "Arun", amount: 3000, city: "Madurai", number: "9123456789" },
+  { name: "Priya", amount: 7000, city: "Coimbatore", number: "9988776655" }
+];
 let editIndex = -1;
 
 /* ===== DISPLAY TABLE ===== */
