@@ -10,19 +10,37 @@
 
 <h2>User Form</h2>
 
+ID:
+<input type="number" id ="id">
+<span id="idErr" style="color: red;"></span><br><br>
+
 Name:
 <input type="text" id="name">
 <span id="nameErr" style="color:red;"></span><br><br>
 
+Email:
+<input type="email" id="email">
+<span id="emailErr" style="color: red;"></span><br><br>
+
+
 Amount:
 <input type="number" id="amount">
 <span id="amountErr" style="color:red;"></span><br><br>
+
 City:
 <input type="text" id="city">
 <span id="cityErr" style="color:red;"></span><br><br>
+
 Phone Number:
 <input type="number" id="number">
 <span id="numberErr" style="color:red;"></span><br><br>
+
+<label>Gender:</label>
+<input type="radio" name="gender" value="Male"> Male
+<input type="radio" name="gender" value="Female"> Female
+<input type="radio" name="gender" value="Other"> Other
+<span id="genderErr" style="color:red;"></span><br><br>
+
 
 <button onclick="addUser()">Add / Update</button>
 
@@ -45,10 +63,13 @@ Filter Amount >
 <table border="1" cellpadding="5">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Name</th>
+      <th>Email</th>
       <th>Amount</th>
       <th>City</th>
       <th>Phone Number</th>
+      <th>Gender</th>
       <th>Edit</th>
       <th>Delete</th>
     </tr>
