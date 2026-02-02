@@ -2,7 +2,8 @@
 
 let users=[
   {id:"01",name:"Arun",email:"arun@gmail.com",amount:3000,city:"Madurai",number:"9123456789",gender:"Male"},
-  {id:"02",name:"Priya",email:"priya@gmail.com",amount:7000,city:"Chennai",number:"9988776655",gender:"Female"}
+  {id:"02",name:"Priya",email:"priya@gmail.com",amount:7000,city:"Chennai",number:"9988776655",gender:"Female"},
+  {id:"03",name:"yathav",email:"yathav@gmail.com",amount:5000,city:"Chennai",number:"9988776655",gender:"Male"}
 ];
 
 let editIndex=-1;
