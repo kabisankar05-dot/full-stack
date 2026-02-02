@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Management</title>
+  <link rel="stylesheet" href="../css/json-1.css">
+</head>
+
+<body>
+
+<h2>User Registration & Management</h2>
+
+<div class="card">
+
+  <div class="form-group">
+    <label>ID</label>
+    <input type="text" id="id">
+    <span id="idErr"></span>
+  </div>
+
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" id="name">
+    <span id="nameErr"></span>
+  </div>
+
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" id="email">
+    <span id="emailErr"></span>
+  </div>
+
+  <div class="form-group">
+    <label>Amount</label>
+    <input type="number" id="amount">
+    <span id="amountErr"></span>
+  </div>
+
+  <div class="form-group">
+    <label>City</label>
+    <input type="text" id="city">
+    <span id="cityErr"></span>
+  </div>
+
+  <div class="form-group">
+    <label>Phone</label>
+    <input type="text" id="number">
+    <span id="numberErr"></span>
+  </div>
+
+  <div class="form-group gender-group">
+    <label>Gender</label>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <br>
+    <span id="genderErr"></span>
+  </div>
+
+  <button class="btn btn-primary" onclick="addUser()">Add / Update</button>
+
+</div>
+
+<!-- SEARCH / FILTER -->
+<div class="tools">
+  <input type="text" id="searchName" placeholder="Search all fields..." onkeyup="searchUser()">
+  <input type="number" id="filterAmount" placeholder="Amount >">
+  <button class="btn btn-warning" onclick="filterUser()">Filter</button>
+  <button class="btn btn-primary" onclick="sortByAmount()">Sort Amount</button>
+</div>
+
+<!-- TABLE -->
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Amount</th>
+      <th>City</th>
+      <th>Phone</th>
+      <th>Gender</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody"></tbody>
+</table>
+
+<script src="../script/json-1.js"></script>
+
+</body>
+</html>
