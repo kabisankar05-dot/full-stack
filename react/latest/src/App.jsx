@@ -1,12 +1,11 @@
-import Navbar from "./components/Navbar";
+import Home from "./Home";
+import RNavbar from "./RNavbar";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <h1 style={{ textAlign: "center", marginTop: "40px" }}>
-        Welcome to React
-      </h1>
+      <RNavbar />
+      <Home />
     </>
   );
 }

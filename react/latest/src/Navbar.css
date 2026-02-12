@@ -20,7 +20,7 @@
 
 .logo span {
   font-size: 12px;
-  color: red;
+;
 }
 
 .nav-links {
@@ -36,5 +36,9 @@
 }
 
 .nav-links .active {
+  color: red;
+}
+
+:active .basic-navber-nav {
   color: red;
 }
