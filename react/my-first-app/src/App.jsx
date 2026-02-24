@@ -1,22 +1,11 @@
-import React, { useState } from "react";
-import Porps from "./Props";
+import UseState from "./use-state";
 
-function App() {
-  const [name, setName] = useState("Kabi");
-
-  // Parent function
-  function changeName() {
-    setName("Arun");
-  }
-
-  return (
+function App(){
+  return(
     <div>
-      <h2>Parent Component</h2>
-
-      {/* props pass pannrom */}
-      <Porps name={name} changeName={changeName} />
+        <UseState data="raja" />
     </div>
-  );
+  )
 }
 
 export default App;
