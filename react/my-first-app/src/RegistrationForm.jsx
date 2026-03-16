@@ -49,6 +49,32 @@ function RegistrationForm() {
           />
           {errors.email && <p className="error">{errors.email.message}</p>}
 
+
+              {/* Password */}
+
+              <label>Password</label>
+              <input type ="password" placeholder='Enter your password'
+              {
+                ...register("password",{required:"Password is required",
+                minLength:{
+                  value:6,
+                  message:"Password must be at least 6 characters"}
+              })}
+            />
+            {errors.password && <p className="error">{errors.password.message}</p>}
+
+            {/* Confirm Password */}
+
+            <label>Confirm Password</label>
+            <input type ="password" placeholder='Confirm your password'
+              {...register("confirmPassword",{required:"Confirm Password is required",
+                minLength:{
+                  value:6,
+                  message:"Confirm Password must be at least 6 characters"}
+              })}
+              />
+              {errors.confirmPassword && <p className="error">{errors.confirmPassword.message}</p>}
+
             <div className="row">
 
               {/* mobile number */}
@@ -57,8 +83,8 @@ function RegistrationForm() {
                 <label>Mobile Number</label>
                 <input type="number" 
                   placeholder='Enter Your Mobile Number'
-                {...register("mobile number", { required: "Mobile Number is required" })} />
-                {errors.mobile && <p className="error">{errors.mobile.message}</p>}
+                {...register("mobileNumber", { required: "Mobile Number is required" })} />
+                {errors.mobileNumber && <p className="error">{errors.mobileNumber.message}</p>}
               </div>
 
               <div className="col">
@@ -98,7 +124,7 @@ function RegistrationForm() {
                 type="radio"
                 value="Other"
                 {...register("gender")}
-              /> Prefer not to say
+              /> Other
             </label>
 
           </div>
@@ -126,6 +152,15 @@ function RegistrationForm() {
                 {...register("postalCode", { required: "Postal Code is required" })} />
                 {errors.postalCode && <p className="error">{errors.postalCode.message}</p>}
                 </div>
+              </div>
+              { /* file upload */}
+              <div className="row">
+                <div className="col">
+                  <label>Upload File</label>
+                  <input type="file" {...register("file",{required:"File is required"})} 
+                  />
+                </div>
+                {errors.file && <p className="error">{errors.file.message}</p>}
               </div>
               <button type="submit">Submit</button>
           </form>
