@@ -1,25 +1,19 @@
 
 
-function Home(){
-    const x=()=>{
-        alert("hi")
-    }
-    return (
-        <div className="box">
-            <div className="section">
-            <h2>Home component</h2>
-            <p>sample content</p>
-            <button onClick={x}>btn</button>
-            </div>
-        <div>
-            <div className="img">
-            <h2>My Image</h2>
-            <a href="https://google.com" target="_blank">
-            <img src="../public/banner-right-image.png" width="200" />
-            </a>
-            </div>
-        </div> 
-        </div>
-    )
+import { Link, Outlet } from "react-router-dom";
+
+function Home() {
+  return (
+    <div>
+      <h1>Home Page</h1>
+
+      <Link to="login">Go to Login</Link><br />
+      <Link to="admin">Go to admin</Link><br />
+      <Link to="main">Go to main</Link> <br />
+
+      <Outlet />  
+    </div>
+  );
 }
+
 export default Home;
