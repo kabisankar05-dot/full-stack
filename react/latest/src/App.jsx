@@ -1,11 +1,9 @@
-import Home from "./Home";
-import RNavbar from "./RNavbar";
+import UseRef from "./UseRef";
 
 function App() {
   return (
     <>
-      <RNavbar />
-      <Home />
+      <UseRef />
     </>
   );
 }
