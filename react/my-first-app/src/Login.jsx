@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [user, setUser] = useState({
+    name: "",
     email: "",
     password: ""
   });
 
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -16,15 +18,15 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // simple validation
-    if (user.email === "admin@gmail.com" && user.password === "1234",
-      user.email === "kabi@gmail.com" && user.password === "kabi"
-    ) 
-       
-      {
-      navigate("/dashboard");
+    if (
+      user.email === "admin@gmail.com" &&
+      user.password === "1234"&&
+      user.name === "admin"
+    ) {
+      localStorage.setItem("token", "true"); // login success
+      navigate("/admin");
     } else {
-      alert("Invalid Login");
+      setError("Invalid Email or Password ");
     }
   };
 
@@ -33,6 +35,13 @@ function Login() {
       <h1>Login Page</h1>
 
       <form onSubmit={handleSubmit}>
+        <input
+          type="name"
+          name="name"
+          placeholder="Enter Name"
+          onChange={handleChange}
+        />
+        <br />
         <input
           type="email"
           name="email"
@@ -48,9 +57,11 @@ function Login() {
           onChange={handleChange}
         />
         <br />
-
+          
         <button type="submit">Login</button>
       </form>
+
+      <p style={{ color: "red" }}>{error}</p>
     </div>
   );
 }

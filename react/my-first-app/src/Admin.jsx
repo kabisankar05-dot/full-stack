@@ -1,25 +1,20 @@
-import React from 'react'
-import { Link, Outlet } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function Admin() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   return (
     <div>
-      <h1>Admin Page</h1>
-    <input type="text" placeholder="Enter admin name" /> <br />
-    <input type="password" placeholder="Enter password" /> <br />
-    <button>Login</button> <br />
+      <h1>Admin Page </h1>
 
-      <Link to="/">Home</Link><br />
-      <Link to="user">User Dashboard</Link><br />
-      <Outlet />
-
-      <hr />
-      <h2>Main Dashboard</h2>
-      <Link to="main">Main Dashboard</Link><br />
-
-      
+      <button onClick={handleLogout}>Logout</button>
     </div>
-  )
+  );
 }
 
 export default Admin;

@@ -1,24 +1,26 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Home from "./Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
 import Admin from "./Admin";
+import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
   return (
-<>
-
-      <Routes>
-        <Route path="/" element={<Home />} >
-          <Route path="login" element={<Login />} />
-          <Route path="user" element={<Dashboard />} />
-          <Route path="admin" element={<Admin />} />
-          <Route path="main" element={<Dashboard />} />
-        </Route>
-          <Route path="login" element={<Login />} />
-          <Route path="admin" element={<Dashboard />} />
-          <Route path="main" element={<Dashboard />} />
+    <>
       
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </>
   );
