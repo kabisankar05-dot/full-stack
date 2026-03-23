@@ -3,12 +3,14 @@ import Login from "./Login";
 import Dashboard from "./Dashboard";
 import Admin from "./Admin";
 import ProtectedRoute from "./ProtectedRoute";
+import Home from "./Home";
 
 function App() {
   return (
     <>
       
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
 
