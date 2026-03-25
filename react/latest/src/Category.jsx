@@ -50,7 +50,7 @@ function Category() {
 
       <hr />
 
-      {/* 🔥 3 Cards Show */}
+      {/* 3 Cards Show */}
       {selectedProduct && (
         <div style={styles.cardContainer}>
           {selectedProduct.images.map((img, index) => (
@@ -75,7 +75,7 @@ function Category() {
           delay={2000}
           autohide
         >
-          <Toast.Body>Added to Cart ✅</Toast.Body>
+          <Toast.Body>Added to Cart</Toast.Body>
         </Toast>
       </ToastContainer>
     </div>
