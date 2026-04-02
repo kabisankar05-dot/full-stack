@@ -13,13 +13,27 @@ function App() {
   const [search, setSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
   const [sort, setSort] = useState("");
+  const [error, setError] = useState(null);
+
+  const fallbackProducts = [
+    { id: 1, title: "Sample Product", price: 100, category: "sample" },
+    { id: 2, title: "Example Item", price: 50, category: "demo" },
+  ];
 
   //  GET PRODUCTS
   useEffect(() => {
     let active = true;
     const loadProducts = async () => {
-      const res = await axios.get("https://fakestoreapi.com/products");
-      if (active) setProducts(res.data);
+      try {
+        const res = await axios.get("/api/products");
+        if (active) setProducts(res.data);
+      } catch (err) {
+        console.error("Failed to load products, using fallback data:", err);
+        if (active) {
+          setError("Unable to reach the products API. Showing fallback data.");
+          setProducts(fallbackProducts);
+        }
+      }
     };
     loadProducts();
     return () => {
@@ -35,10 +49,14 @@ function App() {
   // ADD / UPDATE
   const handleSubmit = async () => {
     if (editId) {
-      await axios.put(
-        `https://fakestoreapi.com/products/${editId}`,
-        form
-      );
+      try {
+        await axios.put(
+          `/api/products/${editId}`,
+          form
+        );
+      } catch (err) {
+        console.warn("Update request failed, applying local update only:", err);
+      }
 
       setProducts(
         products.map((p) =>
@@ -48,7 +66,11 @@ function App() {
 
       setEditId(null);
     } else {
-      await axios.post("https://fakestoreapi.com/products", form);
+      try {
+        await axios.post("/api/products", form);
+      } catch (err) {
+        console.warn("Create request failed, adding locally only:", err);
+      }
 
       setProducts([...products, { ...form, id: Date.now() }]);
     }
@@ -68,7 +90,11 @@ function App() {
 
   // DELETE
   const handleDelete = async (id) => {
-    await axios.delete(`https://fakestoreapi.com/products/${id}`);
+    try {
+      await axios.delete(`/api/products/${id}`);
+    } catch (err) {
+      console.warn("Delete request failed, removing locally only:", err);
+    }
     setProducts(products.filter((p) => p.id !== id));
   };
 
@@ -89,6 +115,11 @@ function App() {
   return (
     <div style={{ padding: "20px" }}>
       <h2>Product CRUD App</h2>
+      {error && (
+        <div style={{ color: "#9a031e", margin: "12px 0" }}>
+          {error}
+        </div>
+      )}
 
       {/* FORM */}
       <input
