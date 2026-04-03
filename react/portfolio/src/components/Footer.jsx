@@ -19,12 +19,12 @@ const Footer = () => {
             whileHover={{ scale: 1.05 }}
             className="text-xl font-bold text-gradient"
           >
-            {'<DEV />'}
+            {'KABISANKAR /'}
           </motion.div>
 
           {/* Copyright */}
           <p className="text-gray-400 text-sm text-center md:text-left">
-            © {currentYear} John Developer. All rights reserved. | Built with React, Vite & Tailwind CSS
+            © {currentYear} Kabisankar. All rights reserved. | Built with React, Vite & Tailwind CSS
           </p>
 
           {/* Scroll to Top */}

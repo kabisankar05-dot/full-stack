@@ -36,19 +36,19 @@ const Contact = () => {
     {
       Icon: FiMail,
       label: 'Email',
-      value: 'john@example.com',
-      href: 'mailto:john@example.com',
+      value: 'kabisankar05@gmail.com',
+      href: 'mailto:kabisankar05@gmail.com',
     },
     {
       Icon: FiPhone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      value: '9025352773',
+      href: 'tel:+919025352773',
     },
     {
       Icon: FiMapPin,
       label: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Siruvalur,Gobichettipalayam,Tamilnadu',
       href: '#',
     },
   ];
