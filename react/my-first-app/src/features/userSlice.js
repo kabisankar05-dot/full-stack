@@ -7,7 +7,7 @@ const initialState = {
     phone: "",
     password: "",
   },
-  users: [], // 👈 final array store
+  users: [], //  final array store
   theme: "light",
 };
 
@@ -20,7 +20,7 @@ const userSlice = createSlice({
     },
 
     submitUser: (state) => {
-      state.users.push(state.formData); // 👈 array push
+      state.users.push(state.formData); //  array push
       state.formData = { name: "", email: "", phone: "", password: "" };
     },
 
